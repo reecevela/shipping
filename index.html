@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPS Label</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="address_maker.js"></script>
+</head>
+<body>
+    <form id="address_form" name="Address_Maker">
+        <label for="to">To: </label><br>
+        <input type="text" id="to" name="to"><br>
+
+        <label for="from">From: </label><br>
+        <input type="text" id="from" name="from"><br>
+
+        <input type="radio" id="personal" name="loc" value="personal">
+        <label for="personal">Personal Address</label><br>
+        <input type="radio" id="gpcm" name="loc" value="gpcm">
+        <label for="gpcm">GPCM</label><br>
+        <input type="radio" id="gpcw" name="loc" value="gpcw">
+        <label for="gpcw">GPCW</label><br>
+        <input type="radio" id="sheldon" name="loc" value="sheldon">
+        <label for="sheldon">Sheldon</label><br>
+        <input type="radio" id="columbus" name="loc" value="columbus">
+        <label for="columbus">Columbus</label><br>
+        
+        <label for="price">Price: </label><br>
+        <input type="text" name="price" id="price"><br>
+        
+        <label for="email">Email: </label><br>
+        <input type="email" name="email" id="email">
+
+        <input type="submit" value="Submit"><br>
+    </form>
+    <div class="output"></div>
+</body>
+</html>
