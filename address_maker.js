@@ -5,14 +5,11 @@ $(document).ready( () => {
     let currentInfo;
     let price;
     let email;
+    let trEmailed;
+    let csToComplete;
+    let shipSpeed;
 
     const addressInfo = {
-        personal: {
-            cname: "",
-            st: "",
-            city: "",
-            stZip: ""
-        },
         gpcm: {
             cname: "GPC Muscatine",
             st: "1600 Oregon St",
@@ -25,7 +22,7 @@ $(document).ready( () => {
             city: "Washington",
             stZip: "IN 47501"
         },
-        sheldon: {
+        sheldonMS: {
             cname: "Kent Nutrition Group",
             st: "1500 RMT Ave",
             city: "Sheldon",
@@ -39,19 +36,30 @@ $(document).ready( () => {
         }
     }
 
-    const locationList = ['personal', 'gpcm', 'gpcw', 'sheldon', 'columbus'];
+    for (const location in addressInfo) {
+        if (Object.hasOwnProperty.call(addressInfo, location)) {
+            const element = addressInfo[location];
+            $("#locList").append($("<option>").attr('value', location));
+        }
+    }
 
     $('#address_form').submit( (evt) => {
         to = $('#to').val();
         from = $('#from').val();
         price = $('#price').val();
         email = $('#email').val();
+        loc = $('#location').val();
+        currentInfo = addressInfo[loc];
 
-        for (let index = 0; index < locationList.length; index++) {
-            if ($(`#${locationList[index]}`).is(':checked')) {
-                loc = locationList[index];
-                currentInfo = addressInfo[loc];
-            }
+        trEmailed = ($('#trEmailed').is(':checked')) ? "YES" : "NO";
+        csToComplete = ($('#csToComplete').is(':checked')) ? "YES" : "NO";
+        
+        if ($('#overnight').is(':checked')) {
+            shipSpeed = "OVERNIGHT";
+        } else if ($('#twoDay').is(':checked')) {
+            shipSpeed = "TWO DAY";
+        } else {
+            shipSpeed = "GROUND"
         }
 
         $('.output').empty();
@@ -64,11 +72,11 @@ $(document).ready( () => {
             .append(`<b>State/Zip</b> ${currentInfo.stZip}<br>`)
             .append('<b>Dept to Charge</b> Kent IT<br>')
             .append(`<b>From:</b> ${from}<br><br>`)
-            .append(`<b>Central Stores to Complete Packaging?: &#x25cb; Yes &#x25cb; No</b><br>`)
-            .append(`<b>Check One: &#x25cb; Ground &#x25cb; 2 Day &#x25cb; Overnight</b><br>`)
-            .append(`<b>Tracking Number Emailed? &#x25cb; Yes &#x25cb; No</b><br><br>`)
+            .append(`<b>Central Stores to Complete Packaging?:</b> ${csToComplete}<br>`)
+            .append(`<b>Shipping Speed:</b> ${shipSpeed}<br>`)
+            .append(`<b>Tracking Number Emailed?</b> ${trEmailed}<br><br>`)
             .append(`<b>Value: </b>$${price}<br>`)
-            .append(`<b>Comments: ${email}</b>`);
+            .append(`<b>Comments:</b> ${email}`);
         
         if (loc !== "personal") {
             $('#address_form').hide();

@@ -19,7 +19,7 @@ form {
     margin: 2em;
 }
 
-input[type=text], input[type=email], input[list="loc"] {
+input[type=text], input[type=email], input[list="locList"] {
     box-shadow: inset 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
