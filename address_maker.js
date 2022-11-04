@@ -70,11 +70,11 @@ $(document).ready( () => {
             .append(`<b>Value: </b>$${price}<br>`)
             .append(`<b>Comments: ${email}</b>`);
         
-        $('#address_form').hide();
         if (loc !== "personal") {
-          print();
+            $('#address_form').hide();
+            print();
+            $('#address_form').show();
         } 
-        $('#address_form').show();
         evt.preventDefault();
     })
 })

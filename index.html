@@ -17,22 +17,40 @@
         <label for="from">From: </label><br>
         <input type="text" id="from" name="from"><br>
 
-        <input type="radio" id="personal" name="loc" value="personal">
-        <label for="personal">Personal Address</label><br>
-        <input type="radio" id="gpcm" name="loc" value="gpcm">
-        <label for="gpcm">GPCM</label><br>
-        <input type="radio" id="gpcw" name="loc" value="gpcw">
-        <label for="gpcw">GPCW</label><br>
-        <input type="radio" id="sheldon" name="loc" value="sheldon">
-        <label for="sheldon">Sheldon</label><br>
-        <input type="radio" id="columbus" name="loc" value="columbus">
-        <label for="columbus">Columbus</label><br>
-        
+        <label>Choose a location:
+            <br>
+            <input list="loc" name="loc" />
+        </label>
+            <datalist id="loc">
+                <option value="personal">
+                <option value="gpcm">
+                <option value="gpcw">
+                <option value="sheldon">
+                <option value="columbus">
+            </datalist>
+        <br>
         <label for="price">Price: </label><br>
         <input type="text" name="price" id="price"><br>
         
         <label for="email">Email: </label><br>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email"><br>
+        
+        <input type="checkbox" id="trEmailed" name="trEmailed" value="true">
+        <label for="trEmailed">Tracking Number Emailed?</label><br>
+
+        <input type="checkbox" id="csToComplete" name="csTocomplete" value="true">
+        <label for="csToComplete">Central Stores to complete Packaging?</label><br>
+        
+        <label for="shipSpeed">Check One:</label><br>
+        <input type="radio" name="shipSpeed" id="ground">
+        <label for="ground">Ground</label><br>
+        <input type="radio" name="shipSpeed" id="twoDay">
+        <label for="twoDay">Two Day</label><br>
+        <input type="radio" name="shipSpeed" id="overnight">
+        <label for="overnight">Overnight</label><br>
+
+
+
 
         <input type="submit" value="Submit"><br>
     </form>
