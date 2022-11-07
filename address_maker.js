@@ -6,8 +6,10 @@ $(document).ready( () => {
     let price;
     let email;
     let trEmailed;
+    let dept;
     let csToComplete;
     let shipSpeed;
+    let choose = false;
 
     const addressInfo = {
         Kent_Corp_HQ: {
@@ -83,7 +85,7 @@ $(document).ready( () => {
             stZip: "NY 14009"
         },
         KNG_Bangor_Maine: {
-            cname: "Bangor, Maine Store",
+            cname: "KNG Bangor, Maine Store",
             st: "876 Stillwater Ave.",
             city: "Bangor",
             stZip: "ME 04401"
@@ -95,31 +97,236 @@ $(document).ready( () => {
             stZip: "IL 62618"
         },
         KNG_Bow_NH_Plant: {
-            cname: "Bow, New Hampshire Plant",
+            cname: "KNG",
             st: "520 Hall St",
             city: "Bow",
             stZip: "NH 03304"
         },
         KNG_Bow_NH_Store: {
-            cname: "Bow, New Hampshire Store",
+            cname: "KNG",
             st: "520 Hall St",
             city: "Bow",
             stZip: "NH 03304"
         },
-        sheldonMS: {
+        KNG_Brandon_VT: {
+            cname: "KNG",
+            st: "57 Alta Woods P.O. Box 238",
+            city: "Brandon",
+            stZip: "VT 05733"
+        },
+        KNG_Columbus_NE: {
+            cname: "KNG",
+            st: "5445 East 23rd. St",
+            city: "Columbus",
+            stZip: "NE 68601"
+        },
+        KNG_Fishkill_NY: {
+            cname: "KNG",
+            st: "1570 Route 52",
+            city: "Fishkill",
+            stZip: "NY 12524"
+        },
+        KNG_Derry_NH: {
+            cname: "KNG",
+            st: "3 Martin St",
+            city: "Derry",
+            stZip: "NH 03038"
+        },
+        KNG_Hagerstown_MD: {
+            cname: "KNG",
+            st: "11431 Hopewell Rd.",
+            city: "Hagerstown",
+            stZip: "MD 21740"
+        },
+        KNG_Ireton_IA: {
+            cname: "KNG",
+            st: "801 Main St",
+            city: "Ireton",
+            stZip: "IA 51027"
+        },
+        KNG_Litchfield_CT: {
+            cname: "99 Thomaston Rd. P.O. Box 73",
+            st: "Litchfield",
+            city: "CT 06759",
+            stZip: "CT 06759"
+        },
+        KNG_Logansport_IN: {
+            cname: "KNG",
+            st: "2407 South 400 East",
+            city: "Logansport",
+            stZip: "IN 46947"
+        },
+        KNG_Marshall_MO: {
+            cname: "KNG",
+            st: "2855 West Arrow",
+            city: "Marshall",
+            stZip: "MO 65340"
+        },
+        KNG_Mason_MI: {
+            cname: "KNG",
+            st: "725 Hull Rd",
+            city: "Mason",
+            stZip: "MI 48854"
+        },
+        KNG_Milford_NH: {
+            cname: "KNG",
+            st: "274 Elm St P.O. Box 66",
+            city: "Milford",
+            stZip: "NH 03055"
+        },
+        KNG_North_Yarmouth_ME: {
+            cname: "KNG",
+            st: "14 The Lane",
+            city: "North Yarmouth",
+            stZip: "ME 04097"
+        },
+        KNG_Richford_VT: {
+            cname: "KNG",
+            st: "1 Webster St",
+            city: "Richford",
+            stZip: "VT 05476"
+        },
+        KNG_Rochester_NH: {
+            cname: "KNG",
+            st: "275 Portland St. P.O. Box 2052",
+            city: "Rochester",
+            stZip: "NH 03867"
+        },
+        KNG_Rockford_IL: {
+            cname: "KNG",
+            st: "1612 South Bend Rd",
+            city: "Rockford",
+            stZip: "IL 61109"
+        },
+        KNG_Sheldon_IA: {
             cname: "Kent Nutrition Group",
             st: "1500 RMT Ave",
             city: "Sheldon",
             stZip: "IA 51201"
         },
-        columbus: {
-            cname: "Kent Corp",
-            st: "1409 Highway 45 S",
+        KNG_Waterloo_IA: {
+            cname: "KNG",
+            st: "2233 West Airline Highway",
+            city: "Waterloo",
+            stZip: "IA 50703"
+        },
+        KNG_Watertown_NY: {
+            cname: "KNG",
+            st: "23175 Murrock Circle",
+            city: "Watertown",
+            stZip: "NY 13601"
+        },
+        KNG_Windham_ME: {
+            cname: "KNG",
+            st: "43 Main St.",
+            city: "Windham",
+            stZip: "ME 04062"
+        },
+        KPG_Headquarters_HQ: {
+            cname: "KPG HQ",
+            st: "2905 U.S. Highway 61 North",
+            city: "Muscatine",
+            stZip: "IA 52761"
+        },
+        KPG_Worlds_Best_Cat_Litter: {
+            cname: "World's Best Cat Litter",
+            st: "1600 Oregon St.",
+            city: "Muscatine",
+            stZip: "IA 52761"
+        },
+        KPG_FibreCycle_Headquarters_HQ_Helensvale_AUS: {
+            cname: "KPG FibreCycle HQ",
+            st: "Unit 1/ 18 Millenium Circuit",
+            city: "Helensvale",
+            stZip: "AUSTRALIA QLD 4212"
+        },
+        KPG_FibreCycle_Plant_Toowoomba_AUS: {
+            cname: "KPG FibreCycle Plant",
+            st: "21 Walters Drive",
+            city: "Toowoomba",
+            stZip: "QLD 4350 AUSTRALIA"
+        },
+        KPG_FibreCycle_Plant_Lonsdale_AUS: {
+            cname: "KPG FibreCycle Plant",
+            st: "19 Somerset Circuit",
+            city: "Lonsdale",
+            stZip: "SA 5160 AUSTRALIA"
+        },
+        KPG_FibreCycle_Plant_Scunthorpe_UK: {
+            cname: "KPG FibreCycle Plant",
+            st: "Phase 8 Celcius Parc, Park Farm Rd - Foxhills Industrial Estate",
+            city: "Scunthorpe",
+            stZip: "United Kingdom DN15 9YJ"
+        },
+        KPFG_Headquarters_HQ: {
+            cname: "KPFG HQ",
+            st: "209 Iowa Ave",
+            city: "Muscatine",
+            stZip: "IA 52761"
+        },
+        KPFG_Bolingbrook_IL: {
+            cname: "KPFG",
+            st: "1000 Dalton Ln",
+            city: "Bolingbrook",
+            stZip: "IL 60490"
+        },
+        KPFG_Columbus_MS: {
+            cname: "KPFG",
+            st: "1409 Hwy 45 South",
             city: "Columbus",
             stZip: "MS 39701"
+        },
+        KPFG_Foley_MN: {
+            cname: "KPFG",
+            st: "347 Glen St",
+            city: "Foley",
+            stZip: "MN 56329"
+        },
+        KPFG_New_Sharon_IA: {
+            cname: "KPFG",
+            st: "2175 150th St. P.O. Box 54",
+            city: "New Sharon",
+            stZip: "IA 50207"
+        },
+        KPFG_Superior_WI: {
+            cname: "KPFG",
+            st: "6120 Tower Ave",
+            city: "Superior",
+            stZip: "WI 54880"
+        },
+        KPFG_Sauk_Rapids_MN: {
+            cname: "KPFG",
+            st: "10 Industrial Blvd",
+            city: "Sauk Rapids",
+            stZip: "MN 56379"
+        },
+        Personal: {
         }
-        //Left off at Brandon, Vermont on https://kent365.sharepoint.com/SitePages/Our-Locations.aspx?xsdata=MDV8MDF8fDY5YmEzOGU3YTI3MDRjYjE5ZTNjMDhkYWJlNzgzMGI2fDE4ZjNlZjc1YTYwZTQ1ODE4MzM5MTYwOGUzNGFhZDRkfDF8MHw2MzgwMzE3MjA2NDg5NzM4ODR8R29vZHxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxNVGs2TjJRM1lUa3lOV0k1TURNME5Ea3dORGszTmpSaE4yUTNNMlExWlRGallqWkFkR2h5WldGa0xuWXl8fA%3D%3D&sdata=NldGSUp2RjlQWmpkU3ZFZGZZa1BFRzhoQmMwRTJDYURPK0ZFdHhMMUVRcz0%3D&ovuser=18f3ef75-a60e-4581-8339-1608e34aad4d%2Crlvela%40kentww.com&OR=Teams-HL&CT=1667576819113&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiIyNy8yMjEwMjgwNzIwMCIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D
     }
+
+    $('#setDefault').click( () => {
+       // window.alert("To save  default settings, fill in any fields or checkboxes you want to be pre-set when you open the page, then bookmark the page. \n \n Recommended preset fields: \n From \n Dept. to charge \n Email \n Tracking # \n Central stores to complete packaging \n Shipping option");
+        evt.preventDefault;
+        //LEFT OFF HERE
+    });
+
+    // user enters own address instead of searching
+    $('.self-entry').hide();
+
+    $('#choose').change( (evt) => {
+        const checkbox = evt.currentTarget;
+        if(checkbox.checked) {
+            choose = true;
+            $('.choose-label').text("Check to search for an address");
+            $('.self-entry').show();
+            $('.search-entry').hide();
+        } else {
+            choose = false;
+            $('.choose-label').text("Check to manually enter an address");
+            $('.self-entry').hide();
+            $('.search-entry').show();
+        }
+    });
 
     for (const location in addressInfo) {
         if (Object.hasOwnProperty.call(addressInfo, location)) {
@@ -133,6 +340,14 @@ $(document).ready( () => {
         from = $('#from').val();
         price = $('#price').val();
         email = $('#email').val();
+        dpet = $('#dept').val();
+        if (choose) {
+            $('#location').val('Personal');
+            addressInfo.Personal.cname = $('#cname').val();
+            addressInfo.Personal.city = $('#city').val();
+            addressInfo.Personal.st = $('#st').val();
+            addressInfo.Personal.stZip = $('#stZip').val();
+        }
         loc = $('#location').val();
         currentInfo = addressInfo[loc];
 
@@ -154,8 +369,8 @@ $(document).ready( () => {
             .append(`<b>Attn To:</b> ${to}<br>`)
             .append(`<b>Address:</b> ${currentInfo.st}<br>`)
             .append(`<b>City:</b> ${currentInfo.city}<br>`)
-            .append(`<b>State/Zip</b> ${currentInfo.stZip}<br>`)
-            .append('<b>Dept to Charge</b> Kent IT<br>')
+            .append(`<b>State/Zip:</b> ${currentInfo.stZip}<br>`)
+            .append(`<b>Dept to Charge:</b> ${dept}<br>`)
             .append(`<b>From:</b> ${from}<br><br>`)
             .append(`<b>Central Stores to Complete Packaging?:</b> ${csToComplete}<br>`)
             .append(`<b>Shipping Speed:</b> ${shipSpeed}<br>`)
