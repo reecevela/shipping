@@ -340,7 +340,7 @@ $(document).ready( () => {
         from = $('#from').val();
         price = $('#price').val();
         email = $('#email').val();
-        dpet = $('#dept').val();
+        dept = $('#dept').val();
         if (choose) {
             $('#location').val('Personal');
             addressInfo.Personal.cname = $('#cname').val();
