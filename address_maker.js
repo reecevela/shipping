@@ -378,11 +378,11 @@ $(document).ready( () => {
             .append(`<b>Value: </b>$${price}<br>`)
             .append(`<b>Comments:</b> ${email}`);
         
-        if (loc !== "personal") {
-            $('#address_form').hide();
-            print();
-            $('#address_form').show();
-        } 
+
+        $('#address_form').hide();
+        print();
+        $('#address_form').show();
+        $('.output').empty();
         evt.preventDefault();
     })
 })
