@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: rgba(0, 0, 120, 0.1);
+    background: rgba(46, 188, 124, 0.1);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: larger;
     color: rgb(21, 21, 21);
@@ -10,7 +10,7 @@ form {
     width: clamp(300px, 50vw, 600px);
     padding: 16px;
     border: none;
-    background-color: rgba(221, 221, 221, 0.5);
+    background-color: rgb(221, 221, 221);
     border-radius: 16px;
     box-shadow: 5px 5px 4px 4px rgba(0, 0, 0, 0.1),
             inset -2px -3px 3px 3px rgba(0, 0, 0, 0.3),
@@ -22,4 +22,14 @@ form {
 input[type=text], input[type=email], input[list="locList"], input[type=number] {
     box-shadow: inset 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+}
+
+legend {
+    font-size: smaller;
+}
+
+#submit {
+    margin: 4px;
+    padding: 8px;
+    font: inherit;
 }

@@ -11,63 +11,63 @@
 </head>
 <body>
     <form id="address_form" name="Address_Maker"- method="get">
-        <label for="to">To: </label><br>
-        <input type="text" id="to" name="to"><br>
-
-        <label for="from">From: </label><br>
-        <input type="text" id="from" name="from"><br>
-
-        <input type="checkbox" name="choose" id="choose">
-        <label for="choose" id="choose-label">Check to manually enter an address</label><br>
-
-        <!--Shown by default-->
-        <div class="search-entry">
-            <label>Search for a location:
+        <fieldset>
+            <legend>Receiver's info</legend>
+            <label for="to">To: </label><br>
+            <input type="text" id="to" name="to"><br>        
+            <!--Shown by default-->
+            <div class="search-entry">
+                <label>Search for a location:
+                    <br>
+                    <input id="location" list="locList" name="location" />
+                </label>
+                <datalist id="locList">
+                    <!--Inserted with JS-->
+                </datalist>
                 <br>
-                <input id="location" list="locList" name="location" />
-            </label>    
-            <datalist id="locList">
-                <!--Inserted with JS-->
-            </datalist>    
-            <br>
-        </div>    
-
-        <!--Only shown if user is entering their own address-->
-        <div class="self-entry">
-            <label for="cname">Company Name:</label><br>
-            <input type="text" name="cname" id="cname"><br>
-            <label for="st">Street:</label><br>
-            <input type="text" name="st" id="st"><br>
-            <label for="city">City:</label><br>
-            <input type="text" name="city" id="city"><br>
-            <label for="stZip">State and ZIP:</label><br>
-            <input type="text" name="stZip" id="stZip"><br>
+            </div>
+            <input type="checkbox" name="choose" id="choose">
+            <label for="choose" id="choose-label">Check to manually enter an address</label><br>      
+            <!--Only shown if user is entering their own address-->
+            <div class="self-entry">
+                <label for="cname">Company Name:</label><br>
+                <input type="text" name="cname" id="cname"><br>
+                <label for="st">Street:</label><br>
+                <input type="text" name="st" id="st"><br>
+                <label for="city">City:</label><br>
+                <input type="text" name="city" id="city"><br>
+                <label for="stZip">State and ZIP:</label><br>
+                <input type="text" name="stZip" id="stZip"><br>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Shipper's info</legend>
+            <label for="from">From: </label><br>
+            <input type="text" id="from" name="from"><br>
+            <label for="email">Email: </label><br>
+            <input type="email" name="email" id="email"><br>
+            <label for="dept">Dept. to charge:</label><br>
+            <input type="text" name="dept" id="dept"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Shipping Options</legend>
+            <label for="price">Value to Insure: </label><br>
+            <input type="number" name="price" id="price"><br>
+            <input type="checkbox" id="trEmailed" name="trEmailed" value="true">
+            <label for="trEmailed">Tracking Number Emailed?</label><br>
+            <input type="checkbox" id="csToComplete" name="csTocomplete" value="true">
+            <label for="csToComplete">Central Stores to complete Packaging?</label><br>
+            <label for="shipSpeed">Check One:</label><br>
+            <input type="radio" name="shipSpeed" id="ground">
+            <label for="ground">Ground</label><br>
+            <input type="radio" name="shipSpeed" id="twoDay">
+            <label for="twoDay">Two Day</label><br>
+            <input type="radio" name="shipSpeed" id="overnight">
+            <label for="overnight">Overnight</label><br>
+        </fieldset>
+        <div>
+            <input id="submit" type="submit" value="Submit"><br>
         </div>
-
-        <label for="dept">Dept. to charge:</label><br>
-        <input type="text" name="dept" id="dept"><br>
-
-        <label for="price">Value to Insure: </label><br>
-        <input type="number" name="price" id="price"><br>
-        
-        <label for="email">Email: </label><br>
-        <input type="email" name="email" id="email"><br>
-        
-        <input type="checkbox" id="trEmailed" name="trEmailed" value="true">
-        <label for="trEmailed">Tracking Number Emailed?</label><br>
-
-        <input type="checkbox" id="csToComplete" name="csTocomplete" value="true">
-        <label for="csToComplete">Central Stores to complete Packaging?</label><br>
-        
-        <label for="shipSpeed">Check One:</label><br>
-        <input type="radio" name="shipSpeed" id="ground">
-        <label for="ground">Ground</label><br>
-        <input type="radio" name="shipSpeed" id="twoDay">
-        <label for="twoDay">Two Day</label><br>
-        <input type="radio" name="shipSpeed" id="overnight">
-        <label for="overnight">Overnight</label><br>
-
-        <input type="submit" value="Submit"><br>
         <!--<button type="submit" id="setDefaults">Set Defaults</button>-->
     </form>
     <div class="output"></div>
