@@ -19,7 +19,7 @@ form {
     margin: 2em;
 }
 
-input[type=text], input[type=email], input[list="locList"], input[type=number] {
+input[type=text], input[type=email], input[list="locList"], input[type=number], input[type=tel] {
     box-shadow: inset 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
 }
@@ -28,7 +28,7 @@ legend {
     font-size: smaller;
 }
 
-#submit {
+#submit, #save {
     margin: 4px;
     padding: 8px;
     font: inherit;
