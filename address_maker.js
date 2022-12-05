@@ -3,13 +3,27 @@ $(document).ready( () => {
     let from;
     let loc;
     let currentInfo;
-    let price;
+    let price ;
     let email;
     let trEmailed;
     let dept;
     let csToComplete;
     let shipSpeed;
     let choose = false;
+    let phone;
+
+    if (localStorage.getItem('name') != '') {
+        $('#from').val(localStorage.getItem('name'));
+    }
+    if (localStorage.getItem('dept') != '') {
+        $('#dept').val(localStorage.getItem('dept'));
+    }
+    if (localStorage.getItem('email') != '') {
+        $('#email').val(localStorage.getItem('email'));
+    }
+    if (localStorage.getItem('phone') != '') {
+        $('#phone').val(localStorage.getItem('phone'));
+    }
 
     const addressInfo = {
         Kent_Corp_HQ: {
@@ -335,12 +349,21 @@ $(document).ready( () => {
         }
     }
 
+    $('#save').click( (evt) => {
+        localStorage.setItem('name', $('#from').val());
+        localStorage.setItem('email', $('#email').val());
+        localStorage.setItem('dept', $('#dept').val());
+        localStorage.setItem('phone', $('#phone').val());
+        evt.preventDefault;
+    });
+
     $('#address_form').submit( (evt) => {
         to = $('#to').val();
         from = $('#from').val();
         price = $('#price').val();
         email = $('#email').val();
         dept = $('#dept').val();
+        phone = $('#phone').val();
         if (choose) {
             $('#location').val('Personal');
             addressInfo.Personal.cname = $('#cname').val();
@@ -371,6 +394,7 @@ $(document).ready( () => {
             .append(`<b>City:</b> ${currentInfo.city}<br>`)
             .append(`<b>State/Zip:</b> ${currentInfo.stZip}<br>`)
             .append(`<b>Dept to Charge:</b> ${dept}<br>`)
+            .append(`<b>Phone:</b> ${phone}<br>`)
             .append(`<b>From:</b> ${from}<br><br>`)
             .append(`<b>Central Stores to Complete Packaging?:</b> ${csToComplete}<br>`)
             .append(`<b>Shipping Speed:</b> ${shipSpeed}<br>`)
