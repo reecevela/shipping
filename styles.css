@@ -29,7 +29,7 @@ input[type=text], input[type=email], input[list="locList"], input[type=number], 
 
 input:focus {
     outline: none;
-    border : violet 2px solid;
+    border : #006CFF 2px solid;
 }
 
 legend {
@@ -37,7 +37,7 @@ legend {
 }
 
 fieldset {
-    border: violet 2px solid;
+    border: #006CFF 2px solid;
 }
 
 #submit, #save {
