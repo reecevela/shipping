@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPS Label</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <form id="address_form" name="Address_Maker"- method="get">
+        <fieldset>
+            <legend>Receiver's info</legend>
+            <label for="to">To: </label><br>
+            <input type="text" id="to" name="to"><br>        
+            <!--Shown by default-->
+            <div class="search-entry">
+                <label>Search for a location:
+                    <br>
+                    <input id="location" list="locList" name="location" />
+                </label>
+                <datalist id="locList">
+                    <!--Inserted with JS-->
+                </datalist>
+                <br>
+            </div>
+            <!--Only shown if user is entering their own address-->
+            <div class="self-entry">
+                <label for="cname">Company Name:</label><br>
+                <input type="text" name="cname" id="cname"><br>
+                <label for="st">Street:</label><br>
+                <input type="text" name="st" id="st"><br>
+                <label for="city">City:</label><br>
+                <input type="text" name="city" id="city"><br>
+                <label for="stZip">State and ZIP:</label><br>
+                <input type="text" name="stZip" id="stZip"><br>
+            </div>
+            <input type="checkbox" name="choose" id="choose">
+            <label for="choose" id="choose-label">Check to manually enter an address</label><br>      
+        </fieldset>
+        <fieldset>
+            <legend>Shipper's info</legend>
+            <label for="from">From: </label><br>
+            <input type="text" id="from" name="from"><br>
+            <label for="email">Email: </label><br>
+            <input type="email" name="email" id="email"><br>
+            <label for="dept">Dept. to charge:</label><br>
+            <input type="text" name="dept" id="dept"><br>
+            <label for="phone">Phone:</label><br>
+            <input type="tel" name="phone" id="phone"><br>
+        </fieldset>
+        <fieldset>
+            <legend>Shipping Options</legend>
+            <label for="price">Value to Insure: </label><br>
+            <input type="number" name="price" id="price"><br>
+            <input type="checkbox" id="trEmailed" name="trEmailed" value="true" checked>
+            <label for="trEmailed">Tracking Number Emailed?</label><br>
+            <input type="checkbox" id="csToComplete" name="csTocomplete" value="true" checked>
+            <label for="csToComplete">Central Stores to complete Packaging?</label><br>
+            <label for="shipSpeed">Check One:</label><br>
+            <input type="radio" name="shipSpeed" id="ground" checked>
+            <label for="ground">Ground</label><br>
+            <input type="radio" name="shipSpeed" id="twoDay">
+            <label for="twoDay">Two Day</label><br>
+            <input type="radio" name="shipSpeed" id="overnight">
+            <label for="overnight">Overnight</label><br>
+        </fieldset>
+        <div class="buttons">
+            <input id="submit" type="submit" value="Print Label"><br>
+            <input id="save" type="button" value="Save prefilled fields"></input>
+        </div>
+    </form>
+    <div class="output"></div>
+</body>
+</html>

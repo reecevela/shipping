@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "firebase": "^9.17.1"
+  },
+  "name": "address-maker",
+  "description": "This is a small application I made so that it's easier and quicker to create UPS labels",
+  "version": "1.0.0",
+  "main": "address_maker.js",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "css-loader": "^6.7.3",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reecevela/Address-Maker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reecevela/Address-Maker/issues"
+  },
+  "homepage": "https://github.com/reecevela/Address-Maker#readme"
+}
