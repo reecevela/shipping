@@ -20,6 +20,10 @@ body {
     min-height: 100vh;
 }
 
+.output {
+    font-size: 2em;
+}
+
 form {
     width: clamp(300px, 50vw, 600px);
     padding: 16px;
