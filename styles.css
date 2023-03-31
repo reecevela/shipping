@@ -30,7 +30,7 @@ form {
     border: none;
     background-color: #ffffff;
     border-radius: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
     margin: 2em;
 }
 
