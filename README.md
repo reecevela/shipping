@@ -2,7 +2,7 @@
 # Internal Shipping Labels App
 This app is a web-based internal shipping label generator, designed to make the process of printing shipping labels easier and more efficient. With this app, you can easily create labels without having to manually look up the recipient's address every time.
 
-[Click here](https://kentreecev.github.io/shipping) to open
+[Click here](https://reecevela.github.io/shipping) to open
 
 ## Technologies Used
  - HTML
