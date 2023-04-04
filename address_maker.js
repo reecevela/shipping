@@ -313,7 +313,8 @@ $(document).ready( () => {
             st: "10 Industrial Blvd",
             city: "Sauk Rapids",
             stZip: "MN 56379"
-        }
+        },
+        Personal: {}
     }
 
     $('#setDefault').click( () => {
