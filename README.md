@@ -9,7 +9,7 @@ This app is a web-based internal shipping label generator, designed to make the 
  - CSS
  - JavaScript
  - jQuery
- - 
+
 ## Features
  - Local storage for saving frequently used fields.
  - Ability to enter your own address instead of searching for one.
