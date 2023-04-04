@@ -317,12 +317,6 @@ $(document).ready( () => {
         Personal: {}
     }
 
-    $('#setDefault').click( () => {
-       // window.alert("To save  default settings, fill in any fields or checkboxes you want to be pre-set when you open the page, then bookmark the page. \n \n Recommended preset fields: \n From \n Dept. to charge \n Email \n Tracking # \n Central stores to complete packaging \n Shipping option");
-        evt.preventDefault;
-        //LEFT OFF HERE
-    });
-
     // user enters own address instead of searching
     $('.self-entry').hide();
 
